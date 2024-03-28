@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Magical Forest of Algora</title>
+    <script src="The-Magical-Forest-of-Algora.js"></script>
+</head>
+<body>
+    <h1>The Magical Forest of Algora</h1>
+    <form id="danceForm">
+        <label for="creature1">Creature 1:</label>
+        <select id="creature1">
+            <option value="Lox">Lox</option>
+            <option value="Drako">Drako</option>
+        </select>
+        <label for="danceMove1">Dance Move 1:</label>
+        <select id="danceMove1">
+            <option value="Twirl">Twirl</option>
+            <option value="Leap">Leap</option>
+            <option value="Spin">Spin</option>
+        </select>
+        <label for="creature2">Creature 2:</label>
+        <select id="creature2">
+            <option value="Lox">Lox</option>
+            <option value="Drako">Drako</option>
+        </select>
+        <label for="danceMove2">Dance Move 2:</label>
+        <select id="danceMove2">
+            <option value="Twirl">Twirl</option>
+            <option value="Leap">Leap</option>
+            <option value="Spin">Spin</option>
+        </select>
+        <button type="submit">Start Dance</button>
+    </form>
+    <div id="output"></div>
+    <script>
+        document.getElementById('danceForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var creature1 = document.getElementById('creature1').value;
+            var danceMove1 = document.getElementById('danceMove1').value;
+            var creature2 = document.getElementById('creature2').value;
+            var danceMove2 = document.getElementById('danceMove2').value;
+            var output = performSacredDance(creature1, danceMove1, creature2, danceMove2);
+            document.getElementById('output').innerText = output;
+        });
+    </script>
+</body>
+</html>
