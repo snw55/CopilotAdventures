@@ -43,66 +43,66 @@
             return danceMoves[Math.floor(Math.random() * danceMoves.length)];
         }
 
-        //Function to perform the sacred dance
-        function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
-            console.log(`${creature1} starts to dance.`);
-            console.log(`${creature1} performs a ${danceMove1}.`);
-            console.log(`${creature2} starts to dance.`);
-            console.log(`${creature2} performs a ${danceMove2}.`);
-
-            if (danceMove1 === 'Twirl' && danceMove2 === 'Twirl') {
-                return 'Fireflies light up the forest.';
-            } else if ((danceMove1 === 'Leap' && danceMove2 === 'Spin') || (danceMove1 === 'Spin' && danceMove2 === 'Leap')) {
-                return 'A rainbow appears in the sky.';
-            } else if (danceMove1 === 'Leap' && danceMove2 === 'Leap') {
-                return 'Gentle rain starts falling.';
-            } else {
-                return 'The forest is filled with a magical aura.';
-            }
-        }
-        // async function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
+        // Function to perform the sacred dance
+        // function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
         //     console.log(`${creature1} starts to dance.`);
         //     console.log(`${creature1} performs a ${danceMove1}.`);
         //     console.log(`${creature2} starts to dance.`);
         //     console.log(`${creature2} performs a ${danceMove2}.`);
 
-        //     let result;
         //     if (danceMove1 === 'Twirl' && danceMove2 === 'Twirl') {
-        //         result = 'Fireflies light up the forest.';
+        //         return 'Fireflies light up the forest.';
         //     } else if ((danceMove1 === 'Leap' && danceMove2 === 'Spin') || (danceMove1 === 'Spin' && danceMove2 === 'Leap')) {
-        //         result = 'A rainbow appears in the sky.';
+        //         return 'A rainbow appears in the sky.';
         //     } else if (danceMove1 === 'Leap' && danceMove2 === 'Leap') {
-        //         result = 'Gentle rain starts falling.';
+        //         return 'Gentle rain starts falling.';
         //     } else {
-        //         result = 'The forest is filled with a magical aura.';
+        //         return 'The forest is filled with a magical aura.';
         //     }
-
-        //     // Define the data for the POST request
-        //     let data = {
-        //         "prompts": [result],  // Use the result as the prompt
-        //         "max_tokens": 64
-        //     };
-
-        //     // Make the POST request
-        //     let response = await fetch('https://sbp-gctfs-offsite24-oai.openai.azure.com/dalle3', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': 'Bearer c6793551a72640a6957c02df798df68e'
-        //         },
-        //         body: JSON.stringify(data)
-        //     });
-
-        //     let responseData = await response.json();
-
-        //     // Handle the response data here
-        //     // Assuming responseData.image contains the URL to the image
-        //     let img = document.createElement('img');
-        //     img.src = responseData.image;
-        //     document.getElementById('output').appendChild(img);
-
-        //     return result;
         // }
+        async function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
+            console.log(`${creature1} starts to dance.`);
+            console.log(`${creature1} performs a ${danceMove1}.`);
+            console.log(`${creature2} starts to dance.`);
+            console.log(`${creature2} performs a ${danceMove2}.`);
+
+            let result;
+            if (danceMove1 === 'Twirl' && danceMove2 === 'Twirl') {
+                result = 'Fireflies light up the forest.';
+            } else if ((danceMove1 === 'Leap' && danceMove2 === 'Spin') || (danceMove1 === 'Spin' && danceMove2 === 'Leap')) {
+                result = 'A rainbow appears in the sky.';
+            } else if (danceMove1 === 'Leap' && danceMove2 === 'Leap') {
+                result = 'Gentle rain starts falling.';
+            } else {
+                result = 'The forest is filled with a magical aura.';
+            }
+
+            // Define the data for the POST request
+            let data = {
+                "prompts": [result],  // Use the result as the prompt
+                "max_tokens": 64
+            };
+
+            // Make the POST request
+            let response = await fetch('https://sbp-gctfs-offsite24-oai.openai.azure.com/dalle3', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer c6793551a72640a6957c02df798df68e'
+                },
+                body: JSON.stringify(data)
+            });
+
+            let responseData = await response.json();
+
+            // Handle the response data here
+            // Assuming responseData.image contains the URL to the image
+            let img = document.createElement('img');
+            img.src = responseData.image;
+            document.getElementById('output').appendChild(img);
+
+            return result;
+        }
 
 
         document.getElementById('creature1').addEventListener('change', function() {
