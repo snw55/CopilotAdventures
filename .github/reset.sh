@@ -25,3 +25,6 @@ git push --force origin $BRANCH_NAME
 
 # Switch back to the new branch
 git checkout $BRANCH_NAME
+
+# Set execute permissions for start.sh and reset.sh
+chmod +x .github/start.sh .github/reset.sh
