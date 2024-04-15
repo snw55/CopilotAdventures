@@ -11,5 +11,6 @@
                 "ms-python.python"
             ]
         }
-    }
+    },
+    "postCreateCommand": "bash .github/start.sh"
 }
