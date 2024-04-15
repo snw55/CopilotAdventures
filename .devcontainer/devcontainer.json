@@ -12,5 +12,5 @@
             ]
         }
     },
-    "postCreateCommand": "apt-get update && apt-get install -y gh"
+    "postCreateCommand": "apt-get update && apt-get install -y gh && gh repo set-default $GITHUB_REPOSITORY"
 }
