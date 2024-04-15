@@ -11,5 +11,6 @@
                 "ms-python.python"
             ]
         }
-    }
+    },
+    "postCreateCommand": "apt-get update && apt-get install -y gh"
 }
