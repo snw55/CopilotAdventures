@@ -13,5 +13,8 @@
             ]
         }
     },
+    "capAdd": [
+        "CAP_LINUX_IMMUTABLE"
+    ],
     "postCreateCommand": "bash start.sh"
 }
