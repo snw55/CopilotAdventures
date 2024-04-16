@@ -12,5 +12,5 @@
             ]
         }
     },
-    "postCreateCommand": "bash .github/start.sh"
+    "postCreateCommand": "bash start.sh"
 }
