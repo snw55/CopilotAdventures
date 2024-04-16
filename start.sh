@@ -20,4 +20,4 @@ git push --force origin $BRANCH_NAME
 git checkout $BRANCH_NAME
 
 # Set execute permissions for start.sh and reset.sh
-chmod +x .github/start.sh .github/reset.sh
+chmod +x start.sh reset.sh

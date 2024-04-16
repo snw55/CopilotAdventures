@@ -11,9 +11,9 @@ assignees: ''
 
 ### 📂 Repository Link
 
-Please provide a link to your GitHub repository containing your solution to the Copilot workshop challenge.
+Please provide a link to your GitHub repository or branch containing your solution to the Copilot workshop challenge.
 
-Repository Link: [Insert Link Here]
+Repository / Branche Link: [Insert Link Here]
 
 
 ### 📝 Description
