@@ -9,6 +9,7 @@
                 "gitHub.vscode-pull-request-github",
                 "ms-dotnettools.csdevkit",
                 "ms-python.python",
+                "vsls-contrib.codetour",
                 "ritwickdey.LiveServer"
             ]
         }
