@@ -8,8 +8,13 @@
                 "gitHub.copilot-chat",
                 "gitHub.vscode-pull-request-github",
                 "ms-dotnettools.csdevkit",
-                "ms-python.python"
+                "ms-python.python",
+                "ritwickdey.LiveServer"
             ]
         }
-    }
+    },
+    "capAdd": [
+        "CAP_LINUX_IMMUTABLE"
+    ],
+    "postCreateCommand": "bash start.sh"
 }
