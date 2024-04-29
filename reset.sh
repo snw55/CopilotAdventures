@@ -31,6 +31,3 @@ chmod +x start.sh reset.sh notification.sh
 
 # Set the immutable attribute on start.sh and reset.sh
 sudo chattr +i start.sh reset.sh notification.sh
-
-# Set the countdown timer for 30 minutes
-code --execute-command "countdown-timer.settimer 00:30:00"
