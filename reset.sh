@@ -27,7 +27,7 @@ git push --force origin $BRANCH_NAME
 git checkout $BRANCH_NAME
 
 # Set execute permissions for start.sh and reset.sh
-chmod +x start.sh reset.sh
+chmod +x start.sh reset.sh notification.sh
 
 # Set the immutable attribute on start.sh and reset.sh
-sudo chattr +i start.sh reset.sh
+sudo chattr +i start.sh reset.sh notification.sh
