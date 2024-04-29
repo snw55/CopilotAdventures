@@ -23,4 +23,4 @@ git checkout $BRANCH_NAME
 chmod +x start.sh reset.sh
 
 # Set the immutable attribute on start.sh and reset.sh
-sudo chattr +i start.sh reset.sh
+sudo chattr +i start.sh reset.sh notification.sh
