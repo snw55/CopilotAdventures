@@ -9,8 +9,7 @@
                 "gitHub.vscode-pull-request-github",
                 "ms-dotnettools.csdevkit",
                 "ms-python.python",
-                "ritwickdey.LiveServer",
-                "ShanuDey.countdown-timer"
+                "ritwickdey.LiveServer"
             ]
         }
     },
