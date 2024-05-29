@@ -2,19 +2,23 @@
     "name": "CopilotAdventures",
     // Configure tool-specific properties.
     "customizations": {
+        // Specify Visual Studio Code extensions to install.
         "vscode": {
             "extensions": [
-                "github.copilot",
-                "gitHub.copilot-chat",
-                "gitHub.vscode-pull-request-github",
-                "ms-dotnettools.csdevkit",
-                "ms-python.python",
-                "ritwickdey.LiveServer"
+                "github.copilot", // GitHub Copilot extension
+                "gitHub.copilot-chat", // GitHub Copilot Chat extension
+                "gitHub.vscode-pull-request-github", // GitHub Pull Request extension
+                "ms-dotnettools.csdevkit", // .NET Core development kit
+                "ms-python.python", // Python extension
+                "ritwickdey.LiveServer", // Live Server extension for web development
+                "vscode-branch-timer.branch-timer" // Branch Timer extension
             ]
         }
     },
+    // Add Linux capabilities to the container.
     "capAdd": [
         "CAP_LINUX_IMMUTABLE"
     ],
+    // Specify a command to run after the container is created.
     "postCreateCommand": "bash start.sh"
 }
