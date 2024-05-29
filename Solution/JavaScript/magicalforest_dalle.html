@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <!-- Your HTML content here -->
+    <form id="danceForm">
+        <label for="creature1">Creature 1:</label>
+        <select id="creature1">
+            <option value="Lox">Lox</option>
+            <option value="Drako">Drako</option>
+        </select>
+        <label for="danceMove1">Dance Move 1:</label>
+        <select id="danceMove1">
+            <option value="Twirl">Twirl</option>
+            <option value="Leap">Leap</option>
+            <option value="Spin">Spin</option>
+        </select>
+        <label for="creature2">Creature 2:</label>
+        <select id="creature2">
+            <option value="Lox">Lox</option>
+            <option value="Drako">Drako</option>
+        </select>
+        <label for="danceMove2">Dance Move 2:</label>
+        <select id="danceMove2">
+            <option value="Twirl">Twirl</option>
+            <option value="Leap">Leap</option>
+            <option value="Spin">Spin</option>
+        </select>
+        <button type="submit">Start Dance</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        console.log("Welcome to the Magical Forest of Algora!");
+        // Define the creatures and their dance moves
+        const creatures = ['Lox', 'Drako'];
+        const danceMoves = ['Twirl', 'Leap', 'Spin'];
+
+        // Function to get a random dance move
+        function getRandomDanceMove() {
+            return danceMoves[Math.floor(Math.random() * danceMoves.length)];
+        }
+
+        // Function to perform the sacred dance
+        // function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
+        //     console.log(`${creature1} starts to dance.`);
+        //     console.log(`${creature1} performs a ${danceMove1}.`);
+        //     console.log(`${creature2} starts to dance.`);
+        //     console.log(`${creature2} performs a ${danceMove2}.`);
+
+        //     if (danceMove1 === 'Twirl' && danceMove2 === 'Twirl') {
+        //         return 'Fireflies light up the forest.';
+        //     } else if ((danceMove1 === 'Leap' && danceMove2 === 'Spin') || (danceMove1 === 'Spin' && danceMove2 === 'Leap')) {
+        //         return 'A rainbow appears in the sky.';
+        //     } else if (danceMove1 === 'Leap' && danceMove2 === 'Leap') {
+        //         return 'Gentle rain starts falling.';
+        //     } else {
+        //         return 'The forest is filled with a magical aura.';
+        //     }
+        // }
+        async function performSacredDance(creature1, danceMove1, creature2, danceMove2) {
+            console.log(`${creature1} starts to dance.`);
+            console.log(`${creature1} performs a ${danceMove1}.`);
+            console.log(`${creature2} starts to dance.`);
+            console.log(`${creature2} performs a ${danceMove2}.`);
+
+            let result;
+            if (danceMove1 === 'Twirl' && danceMove2 === 'Twirl') {
+                result = 'Fireflies light up the forest.';
+            } else if ((danceMove1 === 'Leap' && danceMove2 === 'Spin') || (danceMove1 === 'Spin' && danceMove2 === 'Leap')) {
+                result = 'A rainbow appears in the sky.';
+            } else if (danceMove1 === 'Leap' && danceMove2 === 'Leap') {
+                result = 'Gentle rain starts falling.';
+            } else {
+                result = 'The forest is filled with a magical aura.';
+            }
+
+            // Define the data for the POST request
+            let data = {
+                "prompts": [result],  // Use the result as the prompt
+                "max_tokens": 64
+            };
+
+            // Make the POST request
+            let response = await fetch('https://sbp-gctfs-offsite24-oai.openai.azure.com/dalle3', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer c6793551a72640a6957c02df798df68e'
+                },
+                body: JSON.stringify(data)
+            });
+
+            let responseData = await response.json();
+
+            // Handle the response data here
+            // Assuming responseData.image contains the URL to the image
+            let img = document.createElement('img');
+            img.src = responseData.image;
+            document.getElementById('output').appendChild(img);
+
+            return result;
+        }
+
+
+        document.getElementById('creature1').addEventListener('change', function() {
+            var creature1 = document.getElementById('creature1').value;
+            if (creature1 === 'Lox') {
+                document.getElementById('creature2').value = 'Drako';
+            } else {
+                document.getElementById('creature2').value = 'Lox';
+            }
+        });
+
+        document.getElementById('danceForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var creature1 = document.getElementById('creature1').value;
+            var danceMove1 = document.getElementById('danceMove1').value;
+            var creature2 = document.getElementById('creature2').value;
+            var danceMove2 = document.getElementById('danceMove2').value;
+            var output = performSacredDance(creature1, danceMove1, creature2, danceMove2);
+            document.getElementById('output').innerText = output;
+        });
+    </script>
+</body>
+</html>
