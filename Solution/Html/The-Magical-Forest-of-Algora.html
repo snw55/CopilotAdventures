@@ -1,9 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to the Magical Forest of Algora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            color: #6c5ce7;
+        }
+        .dance-move {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            color: #2d3436;
+            animation: fadeIn 2s;
+        }
+        .TwirlTwirl {
+            background-color: #ffeaa7; /* Fireflies */
+        }
+        .LeapSpin {
+            background-color: #74b9ff; /* Rain */
+        }
+        .SpinLeap {
+            background-color: #fd79a8; /* Rainbow */
+        }
+        .forest-state {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #00b894;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Magical Forest of Algora.</h1>
+    <h1>The Dance of Lox and Drako</h1>
+    <div id="dance-sequence"></div>
+    <div class="forest-state">Forest State: <span id="forest-state">Normal</span></div>
+
+    <script>
+        const danceMoves = {
+            'TwirlTwirl': 'Fireflies light up the forest.',
+            'LeapSpin': 'Gentle rain starts falling.',
+            'SpinLeap': 'A rainbow appears in the sky.',
+        };
+
+        const loxMoves = ['Twirl', 'Leap', 'Spin', 'Twirl', 'Leap'];
+        const drakoMoves = ['Spin', 'Twirl', 'Leap', 'Leap', 'Spin'];
+
+        const danceSequenceElement = document.getElementById('dance-sequence');
+        const forestStateElement = document.getElementById('forest-state');
+
+        for (let i = 0; i < loxMoves.length; i++) {
+            const danceMove = loxMoves[i] + drakoMoves[i];
+            const danceMoveElement = document.createElement('div');
+            danceMoveElement.className = 'dance-move ' + danceMove;
+            danceMoveElement.textContent = `Sequence ${i + 1}: Lox does ${loxMoves[i]}, Drako does ${drakoMoves[i]}`;
+            danceSequenceElement.appendChild(danceMoveElement);
+
+            if (danceMoves[danceMove]) {
+                const forestState = danceMoves[danceMove];
+                forestStateElement.textContent = forestState;
+            }
+        }
+    </script>
 </body>
 </html>
